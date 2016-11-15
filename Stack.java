@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  * @param <T> whatever generic type you like
  */
-public class Stack<T> {
+public class Stack<T>{
 
 	private ArrayList<T> values;
 	private int size;
@@ -26,7 +26,7 @@ public class Stack<T> {
 		values.add(t);
 	}
 	
-	public T pop(T t) throws StackEmptyException {
+	public T pop() throws StackEmptyException {
 		int lastIndex = size-1;
 		T retT = values.get(lastIndex);
 		values.remove(lastIndex);
