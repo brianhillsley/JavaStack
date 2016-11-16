@@ -1,5 +1,6 @@
 package JavaStack;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * A generic stack implementation
@@ -19,14 +20,15 @@ public class Stack<T>{
 	}
 	
 	public T peek(){
-		return values.get(size);
+		return values.get(size-1);
 	}
 	
 	public void push(T t){
 		values.add(t);
+		size++;
 	}
 	
-	public T pop() throws StackEmptyException {
+	public T pop() {
 		int lastIndex = size-1;
 		T retT = values.get(lastIndex);
 		values.remove(lastIndex);
@@ -45,5 +47,17 @@ public class Stack<T>{
 	public int size(){
 		return size;
 	}
+	 
+	public String toString(){
+		 StringBuilder sb = new StringBuilder();
+		 Collections.reverse(this.values); // reverse order temp for printing
+		 
+		 for(T t : this.values){
+			 sb.append(t.toString() + "\n");
+		 } 
+		 Collections.reverse(this.values); // correct the order
+		 return sb.toString();
+		 
+	 }
 	
 }
